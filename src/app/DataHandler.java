@@ -11,16 +11,15 @@ public class DataHandler {
         StringBuilder sb = new StringBuilder();
         AtomicInteger count = new AtomicInteger(0);
         map.forEach((id, name) ->
-                sb.append(toString().format("%d) %d, %s%n",
-                        count.incrementAndGet(),id, name)
-        ));
-        return "\\nALL NAMES:\\n" + sb;
+                sb.append(String.format("%d) %d, %s%n", count.incrementAndGet(), id, name))
+        );
+        return "\nALL NAMES:\n" + sb;
     }
 
 
     public String getById(int id) {
         if (map.containsKey(id)) {
-            return "\\nNAME: id " + id + ", " +
+            return "\nNAME: id " + id + ", " +
                     map.get(id);
         } else {
             throw new IllegalArgumentException("No data!");
